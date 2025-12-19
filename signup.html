@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up for WorkConnect">
+    <title>Sign Up - WorkConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <a href="index.html" class="auth-logo">
+                    <svg width="40" height="40" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="16" fill="url(#gradient)"/>
+                        <path d="M12 10L16 14L20 10M20 22L16 18L12 22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>WorkConnect</span>
+                </a>
+                <h1>Create Your Account</h1>
+                <p>Join WorkConnect and start your journey today</p>
+            </div>
+
+            <!-- Role Selection -->
+            <div class="role-selector">
+                <button class="role-btn active" data-role="freelancer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Freelancer
+                </button>
+                <button class="role-btn" data-role="hirer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    Hirer
+                </button>
+            </div>
+
+            <!-- Signup Form -->
+            <form class="auth-form" id="signupForm">
+                <!-- Common Fields -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <!-- Freelancer Fields -->
+                <div id="freelancerFields" class="role-fields active">
+                    <div class="form-group">
+                        <label for="title">Professional Title</label>
+                        <input type="text" id="title" name="title" placeholder="e.g., Full Stack Developer">
+                        <span class="error-message" id="titleError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills">Skills (comma separated)</label>
+                        <input type="text" id="skills" name="skills" placeholder="e.g., JavaScript, React, Node.js">
+                        <span class="error-message" id="skillsError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio URL</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
+                        <span class="error-message" id="portfolioError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hourlyRate">Hourly Rate (USD)</label>
+                        <input type="number" id="hourlyRate" name="hourlyRate" placeholder="50" min="0">
+                        <span class="error-message" id="hourlyRateError"></span>
+                    </div>
+                </div>
+
+                <!-- Hirer Fields -->
+                <div id="hirerFields" class="role-fields">
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Your Company Inc.">
+                        <span class="error-message" id="companyNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyWebsite">Company Website</label>
+                        <input type="url" id="companyWebsite" name="companyWebsite" placeholder="https://yourcompany.com">
+                        <span class="error-message" id="companyWebsiteError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companySize">Company Size</label>
+                        <select id="companySize" name="companySize">
+                            <option value="">Select size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="500+">500+ employees</option>
+                        </select>
+                        <span class="error-message" id="companySizeError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" name="industry" placeholder="e.g., Technology, Healthcare">
+                        <span class="error-message" id="industryError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms" id="terms" required>
+                        <span>I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a></span>
+                    </label>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">
+                    Create Account
+                </button>
+
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="btn-social">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google
+                    </button>
+                    <button type="button" class="btn-social">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                        </svg>
+                        GitHub
+                    </button>
+                </div>
+
+                <p class="auth-footer">
+                    Already have an account? <a href="login.html" class="link">Sign in</a>
+                </p>
+            </form>
+        </div>
+
+        <!-- Side Panel -->
+        <div class="auth-side">
+            <div class="auth-side-content">
+                <h2 id="sideTitle">Start Your Freelance Journey</h2>
+                <p id="sideDescription">Join thousands of freelancers who are building successful careers on WorkConnect.</p>
+                <div class="auth-features">
+                    <div class="auth-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span id="feature1">Access unlimited job opportunities</span>
+                    </div>
+                    <div class="auth-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span id="feature2">Secure payment processing</span>
+                    </div>
+                    <div class="auth-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span id="feature3">Build your professional portfolio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

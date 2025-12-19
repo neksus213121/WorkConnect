@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hirer Dashboard - WorkConnect">
+    <title>Hirer Dashboard - WorkConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="dashboard-nav-content">
+            <div class="dashboard-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="16" fill="url(#gradient)"/>
+                    <path d="M12 10L16 14L20 10M20 22L16 18L12 22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>WorkConnect</span>
+            </div>
+            <div class="dashboard-nav-right">
+                <button class="icon-btn notification-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    <span class="notification-badge">7</span>
+                </button>
+                <div class="user-menu">
+                    <button class="user-avatar" id="userMenuBtn">
+                        <span>TC</span>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                            Company Profile
+                        </a>
+                        <a href="#settings">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                            </svg>
+                            Settings
+                        </a>
+                        <a href="index.html">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                <polyline points="16 17 21 12 16 7"/>
+                                <line x1="21" y1="12" x2="9" y2="12"/>
+                            </svg>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="sidebar">
+            <button class="mobile-sidebar-toggle" id="sidebarToggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="sidebar-link active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#company" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    Company Profile
+                </a>
+                <a href="#post-job" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Post a Job
+                </a>
+                <a href="#jobs" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    My Job Posts
+                    <span class="badge">6</span>
+                </a>
+                <a href="#applicants" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    Applicants
+                    <span class="badge">24</span>
+                </a>
+                <a href="#messages" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    Messages
+                    <span class="badge">8</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Welcome Section -->
+            <div class="dashboard-header">
+                <div>
+                    <h1>Welcome, TechCorp!</h1>
+                    <p>Manage your hiring process and find the best talent for your team.</p>
+                </div>
+                <button class="btn-primary" id="postJobBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Post New Job
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-card-title">Active Job Posts</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-value">6</div>
+                    <div class="stat-card-change neutral">
+                        2 expiring soon
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-card-title">Total Applicants</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-value">24</div>
+                    <div class="stat-card-change positive">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"/>
+                        </svg>
+                        +8 this week
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-card-title">Interviews Scheduled</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-value">7</div>
+                    <div class="stat-card-change positive">
+                        3 this week
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <span class="stat-card-title">Hired This Month</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-value">3</div>
+                    <div class="stat-card-change positive">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"/>
+                        </svg>
+                        On target
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Company Profile Card -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Company Profile</h2>
+                        <button class="btn-text">Edit</button>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-avatar-large company">TC</div>
+                        <h3>TechCorp Inc.</h3>
+                        <p class="profile-title">Software Development</p>
+                        <div class="profile-info">
+                            <div class="info-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                San Francisco, CA
+                            </div>
+                            <div class="info-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                51-200 employees
+                            </div>
+                        </div>
+                        <p class="company-description">
+                            Leading software development company specializing in cloud solutions 
+                            and enterprise applications.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Active Job Posts -->
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h2>Active Job Posts</h2>
+                        <button class="btn-text">View All</button>
+                    </div>
+                    <div class="jobs-list">
+                        <div class="job-item hirer">
+                            <div class="job-header">
+                                <div class="job-info">
+                                    <h3>Senior React Developer</h3>
+                                    <p>Remote • Full-time</p>
+                                </div>
+                                <span class="job-status status-active">Active</span>
+                            </div>
+                            <p class="job-description">
+                                Looking for an experienced React developer to join our team and work on 
+                                enterprise-level applications.
+                            </p>
+                            <div class="job-footer">
+                                <div class="job-stats">
+                                    <div class="job-stat">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        <span>145 views</span>
+                                    </div>
+                                    <div class="job-stat">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                        </svg>
+                                        <span>12 applicants</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn-text">Edit</button>
+                                    <button class="btn-primary btn-sm">View Applicants</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="job-item hirer">
+                            <div class="job-header">
+                                <div class="job-info">
+                                    <h3>UI/UX Designer</h3>
+                                    <p>Hybrid (San Francisco) • Contract</p>
+                                </div>
+                                <span class="job-status status-active">Active</span>
+                            </div>
+                            <p class="job-description">
+                                Seeking a creative UI/UX designer to reimagine our product experience 
+                                and create stunning user interfaces.
+                            </p>
+                            <div class="job-footer">
+                                <div class="job-stats">
+                                    <div class="job-stat">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        <span>98 views</span>
+                                    </div>
+                                    <div class="job-stat">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                        </svg>
+                                        <span>8 applicants</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn-text">Edit</button>
+                                    <button class="btn-primary btn-sm">View Applicants</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="job-item hirer">
+                            <div class="job-header">
+                                <div class="job-info">
+                                    <h3>DevOps Engineer</h3>
+                                    <p>Remote • Full-time</p>
+                                </div>
+                                <span class="job-status status-expiring">Expiring Soon</span>
+                            </div>
+                            <p class="job-description">
+                                Join our infrastructure team to build and maintain scalable cloud 
+                                solutions. AWS and Kubernetes experience required.
+                            </p>
+                            <div class="job-footer">
+                                <div class="job-stats">
+                                    <div class="job-stat">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        <span>76 views</span>
+                                    </div>
+                                    <div class="job-stat">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                        </svg>
+                                        <span>4 applicants</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn-text">Edit</button>
+                                    <button class="btn-primary btn-sm">View Applicants</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Applicants -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Recent Applicants</h2>
+                        <button class="btn-text">View All</button>
+                    </div>
+                    <div class="applicants-list">
+                        <div class="applicant-item">
+                            <div class="applicant-avatar">SJ</div>
+                            <div class="applicant-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Senior React Developer</p>
+                                <div class="applicant-meta">
+                                    <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-score">4.9</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary btn-sm">Review</button>
+                        </div>
+                        <div class="applicant-item">
+                            <div class="applicant-avatar">MC</div>
+                            <div class="applicant-info">
+                                <h4>Michael Chen</h4>
+                                <p>Senior React Developer</p>
+                                <div class="applicant-meta">
+                                    <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-score">4.8</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary btn-sm">Review</button>
+                        </div>
+                        <div class="applicant-item">
+                            <div class="applicant-avatar">EP</div>
+                            <div class="applicant-info">
+                                <h4>Emily Parker</h4>
+                                <p>UI/UX Designer</p>
+                                <div class="applicant-meta">
+                                    <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-score">5.0</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary btn-sm">Review</button>
+                        </div>
+                        <div class="applicant-item">
+                            <div class="applicant-avatar">DW</div>
+                            <div class="applicant-info">
+                                <h4>David Wilson</h4>
+                                <p>UI/UX Designer</p>
+                                <div class="applicant-meta">
+                                    <span class="rating-stars">⭐⭐⭐⭐</span>
+                                    <span class="rating-score">4.7</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary btn-sm">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Hiring Pipeline</h2>
+                    </div>
+                    <div class="pipeline-stats">
+                        <div class="pipeline-stat">
+                            <div class="pipeline-label">New Applications</div>
+                            <div class="pipeline-value">24</div>
+                            <div class="pipeline-bar">
+                                <div class="pipeline-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stat">
+                            <div class="pipeline-label">Under Review</div>
+                            <div class="pipeline-value">12</div>
+                            <div class="pipeline-bar">
+                                <div class="pipeline-progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stat">
+                            <div class="pipeline-label">Interviewing</div>
+                            <div class="pipeline-value">7</div>
+                            <div class="pipeline-bar">
+                                <div class="pipeline-progress" style="width: 29%"></div>
+                            </div>
+                        </div>
+                        <div class="pipeline-stat">
+                            <div class="pipeline-label">Offer Extended</div>
+                            <div class="pipeline-value">3</div>
+                            <div class="pipeline-bar">
+                                <div class="pipeline-progress" style="width: 12.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Post Job Modal -->
+    <div class="modal" id="postJobModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Post a New Job</h2>
+                <button class="modal-close" id="closeModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <form class="modal-form" id="postJobForm">
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="e.g., Senior React Developer" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobDescription">Job Description</label>
+                    <textarea id="jobDescription" rows="4" placeholder="Describe the role and responsibilities..." required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobType">Job Type</label>
+                        <select id="jobType" required>
+                            <option value="">Select type</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="part-time">Part-time</option>
+                            <option value="contract">Contract</option>
+                            <option value="freelance">Freelance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobLocation">Location</label>
+                        <input type="text" id="jobLocation" placeholder="e.g., Remote, San Francisco" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="budgetMin">Budget Min (USD/hr)</label>
+                        <input type="number" id="budgetMin" placeholder="50" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="budgetMax">Budget Max (USD/hr)</label>
+                        <input type="number" id="budgetMax" placeholder="100" min="0" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jobSkills">Required Skills (comma separated)</label>
+                    <input type="text" id="jobSkills" placeholder="e.g., React, TypeScript, Node.js" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelModal">Cancel</button>
+                    <button type="submit" class="btn-primary">Post Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/hirer-dashboard.js"></script>
+</body>
+</html>
